@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sd-navy: #2b569a;
+    --sd-navy-dark: #1d3f75;
+    --sd-cyan: #00b5d8;
+    --sd-green: #7bb642;
+    --sd-ice: #f3f8fc;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #ffffff;
+    color: #1e3a6d;
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+  }
+}
+
+.font-playful {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+.font-clean {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}

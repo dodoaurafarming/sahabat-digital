@@ -1,0 +1,7 @@
+# Frontend specific
+dist/
+node_modules/
+.env
+.env.local
+*.log
+.vite/w

@@ -1,0 +1,9 @@
+# Backend specific
+dist/
+node_modules/
+.env
+.env.local
+*.log
+
+# Prisma
+prisma/migrations/migration_lock.toml
