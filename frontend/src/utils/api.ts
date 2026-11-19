@@ -1,10 +1,23 @@
 // src/utils/api.ts
 import axios from 'axios';
 
+// ✅ 1. DEFINISIKAN isProduction MENGGUNAKAN BAWAAN VITE
+// Ini akan otomatis bernilai 'true' saat di-build di Vercel, dan 'false' saat npm run dev lokal
+const isProduction = import.meta.env.PROD;
+
+// ✅ 2. TENTUKAN baseURL BERDASARKAN ENVIRONMENT
+const baseURL = isProduction
+  ? 'https://sahabat-digital-backend.vercel.app/api' // Pastikan URL ini sesuai dengan URL backend Vercel Anda
+  : 'http://localhost:5000/api';
+
 export const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
+// ✅ 3. PERTAHANKAN INTERCEPTOR REQUEST ANDA (SUDAH SANGAT BAGUS)
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -16,6 +29,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
+// ✅ 4. PERTAHANKAN INTERCEPTOR RESPONSE ANDA (SUDAH SANGAT BAGUS)
 api.interceptors.response.use(
   (response) => response,
   (error) => {
